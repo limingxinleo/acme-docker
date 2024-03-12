@@ -1,6 +1,7 @@
 # 申请证书脚本
 
 [acme.sh](https://github.com/acmesh-official/acme.sh)
+[官方 Docker 使用方法](https://github.com/acmesh-official/acme.sh/wiki/Run-acme.sh-in-docker)
 
 ## 安装
 
@@ -37,6 +38,15 @@ acme.sh --renew -d example.com -d '*.example.com' --yes-I-know-dns-manual-mode-e
 
 ```shell
 acme.sh --install-cert -d example.com -d '*.example.com' --key-file /output/key.pem --fullchain-file /output/cert.pem
+```
+
+## 更新证书
+
+> 不知道为什么直接更新每次都超时，所以我通常直接删掉，然后重新来
+
+```shell
+acme.sh --remove --domain example.com 
+acme.sh --remove --domain '*.example.com'
 ```
 
 ## 配置 Nginx
